@@ -11,7 +11,7 @@ const Sidebar = () => {
   const sections = [
     {
       id: 1,
-      title: 'All Tasks',
+      title: 'All',
       img: all,
       value: 'at',
     },

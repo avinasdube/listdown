@@ -30,7 +30,7 @@
             }
 
             .inputContainer {
-                height: 90px;
+                height: fit-content;
                 background-color: white;
             }
         }
@@ -52,6 +52,7 @@
                 .inputContainer {
                     position: fixed;
                     bottom: 0;
+                    z-index: +3;
                 }
             }
         }
