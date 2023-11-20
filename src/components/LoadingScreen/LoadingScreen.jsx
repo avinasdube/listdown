@@ -10,6 +10,9 @@ const LoadingScreen = () => {
         <span className='bg1'></span>
         <Logo />
       </div>
+      <footer>
+        &copy; 2023 ListDown
+      </footer>
     </div>
   )
 }

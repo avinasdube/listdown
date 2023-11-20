@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     .subContainer {
         width: 160px;
@@ -36,6 +37,12 @@
                 }
             }
         }
+    }
+
+    footer{
+        position: absolute;
+        bottom: 30px;
+        font-size: 10px;
     }
 
 }
