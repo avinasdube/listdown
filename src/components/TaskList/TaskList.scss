@@ -1,0 +1,72 @@
+@import '../../variables';
+
+.listContainer{
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    transition: 0.2s linear;
+
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+
+    .taskBox{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid rgb(228, 228, 228);
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        .content{
+            flex: 6;
+            display: flex;
+            gap: 10px;
+
+            .details{
+                display: flex;
+                flex-direction: column;
+
+                .label{
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .action{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 10px;
+
+            img{
+                width: 26px;
+                height: 26px;
+                transition: 0.2s ease-in;
+            }
+
+            img:hover {
+                transform: scale(1.06);
+            }
+
+            img:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+
+    .taskBox:hover{
+        border: 2px solid $primaryColor;
+    }
+}
+
+@media screen and (max-width: 800) {
+    .listContainer{
+        
+    }
+}
