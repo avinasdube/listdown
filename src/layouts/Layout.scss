@@ -39,6 +39,10 @@
 
 @media screen and (max-width: 800px) {
     .layoutContainer {
+        .navbar{
+            padding: 10px;
+        }
+
         .mainContainer {
             flex-direction: column;
 
@@ -46,9 +50,15 @@
                 border-right: none;
                 width: auto;
                 margin-bottom: -10px;
+                padding: 10px;
             }
 
             .mainContent {
+
+                .tasklistContainer{
+                    padding: 10px;
+                }
+                
                 .inputContainer {
                     position: fixed;
                     bottom: 0;

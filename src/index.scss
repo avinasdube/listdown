@@ -4,7 +4,6 @@ body {
   height: 100vh;
   margin: 0;
   font-family: $primaryFont;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
   transition: 0.3s ease-in;
 }
