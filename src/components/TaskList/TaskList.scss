@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.listContainer{
+.listContainer {
     height: 440px;
     display: flex;
     flex-direction: column;
@@ -9,11 +9,11 @@
     scroll-behavior: smooth;
     transition: 0.2s linear;
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: 0;
     }
 
-    .taskBox{
+    .taskBox {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -21,33 +21,48 @@
         padding: 10px 20px;
         border-radius: 10px;
 
-        .content{
+        .content {
             flex: 6;
             display: flex;
             gap: 10px;
 
-            .details{
+            .details {
                 display: flex;
                 flex-direction: column;
 
-                .label{
+                @media screen and (max-width: 460px) {
+                    font-size: 12px;
+                }
+
+                .label {
+                    margin-top: -3px;
                     font-size: 12px;
                     font-weight: 500;
+
+                    @media screen and (max-width: 460px) {
+                        font-size: 10px;
+                    }
                 }
+
             }
         }
 
-        .action{
+        .action {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
             gap: 10px;
 
-            img{
+            img {
                 width: 26px;
                 height: 26px;
                 transition: 0.2s ease-in;
+
+                @media screen and (max-width: 460px) {
+                    width: 24px;
+                    height: 24px;
+                }
             }
 
             img:hover {
@@ -60,13 +75,7 @@
         }
     }
 
-    .taskBox:hover{
+    .taskBox:hover {
         border: 2px solid $primaryColor;
-    }
-}
-
-@media screen and (max-width: 800) {
-    .listContainer{
-        
     }
 }

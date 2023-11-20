@@ -10,7 +10,7 @@
         width: 100%;
         display: flex;
         align-items: center;
-        padding: 10px 20px;
+        padding: 0px 20px 20px 20px;
 
         .formContainer {
             width: 100%;
@@ -45,11 +45,10 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        gap: 10px;
-                        background-color: $primaryColor;
+                        gap: 5px;
+                        border: 1px solid rgb(228, 228, 228);
                         padding: 5px 10px;
                         border-radius: 10px;
-                        color: white;
                         cursor: pointer;
 
                         img {
@@ -58,8 +57,8 @@
                         }
                     }
 
-                    .labelList{
-                        background-color: $primaryColor;
+                    .labelList {
+                        background-color: rgb(228, 228, 228);
                         width: 100px;
                         display: none;
                         flex-direction: column;
@@ -67,22 +66,20 @@
                         border-radius: 10px;
                         position: absolute;
                         top: -80px;
-                        color: white;
 
-                        span{
+                        span {
                             padding: 4px 14px;
                             border-radius: 10px;
                             cursor: pointer;
                             text-align: left;
                         }
 
-                        span:hover{
-                            color: black;
+                        span:hover {
                             background-color: palegreen;
                         }
                     }
 
-                    .labelList.active{
+                    .labelList.active {
                         display: flex;
                     }
                 }
@@ -111,37 +108,41 @@
 }
 
 @media screen and (max-width: 460px) {
-    .inputContainer{
-        .inputSubContainer{
-            .formContainer{
-                .actions{
+    .inputContainer {
+        .inputSubContainer {
+            .formContainer {
+                input {
+                    width: 120px;
+                }
+
+                .actions {
                     gap: 5px;
 
-                    .labelSelector{
+                    .labelSelector {
                         gap: 2px;
                         font-size: 10px;
 
-                        .activeLabel{
-                            width: fit-content;
+                        .activeLabel {
+                            width: 70px;
                             padding: 4px 8px;
 
-                            img{
-                                width: 15px;
-                                height: 15px;
+                            img {
+                                width: 18px;
+                                height: 18px;
                             }
                         }
-    
-                        .labelList{
+
+                        .labelList {
                             width: 70px;
 
-                            span{
+                            span {
                                 padding: 4px 8px;
                             }
                         }
                     }
 
-                    button{
-                        img{
+                    button {
+                        img {
                             width: 24px;
                             height: 24px;
                         }
