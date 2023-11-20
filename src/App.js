@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
-import LoadingScreen from './components/Logo/LoadingScreen';
-
-import dev from './assets/dev.png';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import Layout from './layouts/Layout';
+import TaskList from './components/TaskList/TaskList';
 
 function App() {
 
@@ -20,9 +20,10 @@ function App() {
   return (
     <>
       {loading === true ? <LoadingScreen /> :
-        <div className="App">
-          <img src={dev} alt=''></img>
-          <span>Under Construction. Come back shortly.</span>
+        <div className="appContainer">
+          <Layout >
+            <TaskList />
+          </Layout>
         </div>
       }
     </>

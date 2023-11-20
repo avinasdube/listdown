@@ -1,0 +1,153 @@
+@import '../../variables';
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .inputSubContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+
+        .formContainer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border-bottom: 2px solid rgb(228, 228, 228);
+
+            input {
+                outline: none;
+                border: none;
+                font-family: $primaryFont;
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .labelSelector {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    font-size: 12px;
+                    position: relative;
+
+                    .activeLabel {
+                        width: 100px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 10px;
+                        background-color: $primaryColor;
+                        padding: 5px 10px;
+                        border-radius: 10px;
+                        color: white;
+                        cursor: pointer;
+
+                        img {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+
+                    .labelList{
+                        background-color: $primaryColor;
+                        width: 100px;
+                        display: none;
+                        flex-direction: column;
+                        padding: 10px 10px;
+                        border-radius: 10px;
+                        position: absolute;
+                        top: -80px;
+                        color: white;
+
+                        span{
+                            padding: 4px 14px;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            text-align: left;
+                        }
+
+                        span:hover{
+                            color: black;
+                            background-color: palegreen;
+                        }
+                    }
+
+                    .labelList.active{
+                        display: flex;
+                    }
+                }
+
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: transparent;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                button:hover {
+                    transform: scale(1.05);
+                }
+
+                button:active {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .inputContainer{
+        .inputSubContainer{
+            .formContainer{
+                .actions{
+                    gap: 5px;
+
+                    .labelSelector{
+                        gap: 2px;
+                        font-size: 10px;
+
+                        .activeLabel{
+                            width: fit-content;
+                            padding: 4px 8px;
+
+                            img{
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+    
+                        .labelList{
+                            width: 70px;
+
+                            span{
+                                padding: 4px 8px;
+                            }
+                        }
+                    }
+
+                    button{
+                        img{
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
