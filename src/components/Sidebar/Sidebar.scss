@@ -1,0 +1,86 @@
+@import '../../variables';
+
+.sidebarContainer {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    .options {
+        color: black;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        button {
+            font-family: $primaryFont;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: linear 0.2s;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        button.active{
+            background-color: $primaryColor;
+            color: white;
+        }
+
+        button:hover {
+            background-color: $primaryColor;
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 800px){
+    .sidebarContainer{
+        .options{
+            flex-direction: row;
+            justify-content: space-between;
+
+            button{
+                font-size: 14px;
+                padding: 5px 15px;
+                gap: 10px;
+                border: 1px solid rgb(225, 225, 225);
+
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+  }
+
+  @media screen and (max-width: 460px){
+    .sidebarContainer{
+        .options{
+
+            button{
+                font-size: 13px;
+                padding: 4px 10px;
+                gap: 10px;
+                border: 1px solid rgb(225, 225, 225);
+
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+  }
