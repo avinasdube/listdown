@@ -1,0 +1,39 @@
+@import '../../variables';
+
+.searchContainer {
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 10px;
+
+    img {
+        width: 18px;
+        height: 18px;
+    }
+
+    input {
+        width: 100px;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: $primaryFont;
+        background-color: rgb(241, 241, 241);
+        transition: linear 0.3s;
+    }
+
+    input:focus {
+        width: 140px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .searchContainer{
+        padding: 5px 12px;
+
+        input:focus{
+            width: 120px;
+        }
+    }
+}
