@@ -35,12 +35,10 @@
 
         button.active{
             background-color: $primaryColor;
-            color: white;
         }
 
         button:hover {
             background-color: $primaryColor;
-            color: white;
         }
     }
 }
@@ -73,7 +71,7 @@
             button{
                 font-size: 13px;
                 padding: 4px 10px;
-                gap: 10px;
+                gap: 6px;
                 border: 1px solid rgb(225, 225, 225);
 
                 img{

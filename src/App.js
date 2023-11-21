@@ -3,6 +3,7 @@ import './App.scss';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import Layout from './layouts/Layout';
 import TaskList from './components/TaskList/TaskList';
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -17,12 +18,15 @@ function App() {
     }, 3000);
   }, []);
 
+  // GETTING TASKLIST FROM REDUX STATE REDUCER
+  const tasklist = useSelector(state => state.todos.todos);
+
   return (
     <>
       {loading === true ? <LoadingScreen /> :
         <div className="appContainer">
           <Layout >
-            <TaskList />
+              <TaskList tasklist={tasklist} />
           </Layout>
         </div>
       }
