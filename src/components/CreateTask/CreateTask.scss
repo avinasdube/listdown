@@ -67,7 +67,7 @@
                         padding: 10px 10px;
                         border-radius: 10px;
                         position: absolute;
-                        top: -80px;
+                        top: -105px;
 
                         span {
                             padding: 4px 14px;
@@ -120,15 +120,16 @@
                 }
 
                 .actions {
-                    gap: 5px;
+                    gap: 4px;
+                    margin-right: -10px;
 
                     .labelSelector {
                         gap: 2px;
                         font-size: 10px;
 
                         .activeLabel {
-                            width: 70px;
-                            padding: 4px 8px;
+                            width: 80px;
+                            padding: 3px 8px;
 
                             img {
                                 width: 18px;
@@ -137,7 +138,7 @@
                         }
 
                         .labelList {
-                            width: 70px;
+                            width: 80px;
 
                             span {
                                 padding: 4px 8px;
@@ -147,8 +148,8 @@
 
                     button {
                         img {
-                            width: 24px;
-                            height: 24px;
+                            width: 20px;
+                            height: 20px;
                         }
                     }
                 }
