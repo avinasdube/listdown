@@ -35,19 +35,28 @@ const todoSlice = createSlice({
             state.todos.push(action.payload)
         },
         checkTodo: (state, action) => {
-            const index = action.payload;
+            const id = action.payload;
 
             // FETCHING 'tasklist' FROM LOCALSTORAGE AND STORING IT IN 'storageTask'
             const storageTask = JSON.parse(localStorage.getItem("tasklist"))
 
             // UNCHECKING THE TARGETTED TASK 
-            storageTask[index].checked = !storageTask[index].checked;
-            
+            const updatedTasklist = storageTask.map(task => {
+                if (task.id.toString() === id.toString()) { // important to convert it to string
+                    return {
+                        ...task,
+                        checked: !task.checked, // Toggle the checked state
+                    };
+                }
+                return task;
+            });
+
             // UPDATING THE localStorage
-            localStorage.setItem("tasklist", JSON.stringify(storageTask));
+            localStorage.setItem("tasklist", JSON.stringify(updatedTasklist));
 
             // UPDATING LOCAL STATE
-            state.todos = storageTask;
+
+            state.todos = updatedTasklist
         },
         removeTodo: (state, action) => {
             const id = action.payload;
