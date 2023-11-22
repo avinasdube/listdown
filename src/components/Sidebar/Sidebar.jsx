@@ -1,40 +1,46 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Sidebar.scss';
 
-import all from '../../assets/all.png';
+import tommorow from '../../assets/all.png';
 import today from '../../assets/today.png';
 import upcoming from '../../assets/upcoming.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveFilter } from '../../reducers/filterReducers';
 
 const Sidebar = () => {
-  const [section, setSection] = useState('at');
+
+  const dispatch = useDispatch();
 
   const sections = [
     {
       id: 1,
-      title: 'All',
-      img: all,
-      value: 'at',
+      title: 'Today',
+      img: today,
     },
     {
       id: 2,
-      title: 'Today',
-      img: today,
-      value: 'td',
+      title: 'Tommorow',
+      img: tommorow,
     },
     {
       id: 3,
       title: 'Upcoming',
       img: upcoming,
-      value: 'uc'
     }
   ]
+
+  const activeFilter = useSelector(state => state.labels.activeFilter);
 
   return (
     <div className="sidebarContainer">
       <div className="options">
         {sections.map((secton) => (
-          <button className={`${secton.value === section ? 'active' : ''}`} value={secton.value} onClick={(e) => setSection(e.target.value)} key={secton.id}>
-            <img src={secton.img} alt=''></img>{secton.title}
+          <button
+            className={`${secton.title === activeFilter ? 'active' : ''}`}
+            onClick={() => dispatch(setActiveFilter(secton.title))}
+            key={secton.id}>
+            <img src={secton.img} alt=''></img>
+            {secton.title}
           </button>
         ))}
       </div>
