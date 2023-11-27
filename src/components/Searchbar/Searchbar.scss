@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .searchContainer {
-    background-color: rgb(241, 241, 241);
+    background-color: $lightAccent;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -19,21 +19,32 @@
         border: none;
         outline: none;
         font-family: $primaryFont;
-        background-color: rgb(241, 241, 241);
+        background: none;
         transition: linear 0.3s;
     }
 
     input:focus {
         width: 140px;
     }
+
+    &.active{
+        background-color: $darkAccent;
+
+        input{
+            color: $lightAccent;
+        }
+    }
 }
 
 @media screen and (max-width: 460px) {
-    .searchContainer{
+    .searchContainer {
         padding: 4px 10px;
 
-        input:focus{
-            width: 110px;
+        input {
+            width: 50px;
+            &:focus{
+                width: 50px;
+            }
         }
     }
 }

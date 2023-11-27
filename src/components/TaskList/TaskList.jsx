@@ -24,8 +24,10 @@ const TaskList = ({ tasklist }) => {
         return searchWord.toLowerCase() === "" ? true : task.text.toLowerCase().includes(searchWord.toLowerCase());
     });
 
+    const currentMode = useSelector(state => state.mode.currentMode);
+
     return (
-        <div className="listContainer">
+        <div className={`listContainer ${currentMode === 'dark' ? 'active' : ''}`}>
             {filteredAndSearchedTasks.length === 0 ?
                 <NoTask filter={filter} /> :
                 filteredAndSearchedTasks.map((task) => (

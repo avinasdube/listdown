@@ -1,25 +1,26 @@
 @import '../../variables';
 
-.inputContainer {
+.inputContainer,
+.inputSubContainer,
+.formContainer,
+.actions,
+.labelSelector,
+.activeLabel {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.inputContainer {
     width: 100%;
 
     .inputSubContainer {
         width: 100%;
-        display: flex;
-        align-items: center;
-        padding: 0px 20px 20px 20px;
+        border-top: $borderLight;
 
         .formContainer {
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 20px;
-            border-radius: 20px;
-            border-bottom: 2px solid rgb(228, 228, 228);
+            padding: 20px 10px;
 
             input {
                 outline: none;
@@ -29,26 +30,22 @@
             }
 
             .actions {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
                 gap: 10px;
 
                 .labelSelector {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
                     gap: 10px;
                     font-size: 12px;
                     position: relative;
 
                     .activeLabel {
-                        width: 100px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
+
+                        &,
+                        .labelList {
+                            width: 100px;
+                        }
+
                         gap: 5px;
-                        border: 1px solid rgb(228, 228, 228);
+                        border: $borderLight;
                         padding: 4px 10px;
                         border-radius: 10px;
                         cursor: pointer;
@@ -61,7 +58,6 @@
 
                     .labelList {
                         background-color: rgb(228, 228, 228);
-                        width: 100px;
                         display: none;
                         flex-direction: column;
                         padding: 10px 10px;
@@ -90,22 +86,57 @@
                     outline: none;
                     border: none;
                     background-color: transparent;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     img {
                         width: 30px;
                         height: 30px;
                     }
-                }
 
-                button:hover {
-                    transform: scale(1.05);
-                }
-
-                button:active {
-                    transform: scale(0.9);
+                    &:hover,
+                    &:active {
+                        transform: scale(1.05);
+                    }
                 }
             }
         }
+    }
+
+    &.active {
+        .inputSubContainer {
+            border-top: $borderDark;
+
+            .formContainer {
+                input {
+                    background: transparent;
+                    color: $lightAccent;
+                }
+
+                .actions {
+                    .labelSelector {
+                        .activeLabel {
+                            border: $borderDark;
+                            color: $lightAccent;
+                        }
+
+                        .labelList {
+                            background-color: $darkBg;
+                            color: $lightAccent;
+                            border: $borderDark;
+
+                            span:hover {
+                                background-color: $darkAccent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 

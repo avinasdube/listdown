@@ -30,9 +30,10 @@ const Sidebar = () => {
   ]
 
   const activeFilter = useSelector(state => state.labels.activeFilter);
+  const currentMode = useSelector(state => state.mode.currentMode);
 
   return (
-    <div className="sidebarContainer">
+    <div className={`sidebarContainer ${currentMode === 'dark' ? 'active' : ''}`}>
       <div className="options">
         {sections.map((secton) => (
           <button

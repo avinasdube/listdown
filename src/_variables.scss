@@ -7,4 +7,14 @@ $primaryFont: 'Poppins', sans-serif;
 
 // LIGHT MODE COLORS
 
-$primaryColor: #98fb98;
+$lightBg: white;
+$lightAccent: rgb(227, 227, 227);
+$borderLight: 1px solid $lightAccent;
+ 
+// DARK MODE COLORS
+
+$darkBg: #030508;
+$darkAccent: #1b1b1b;
+$borderDark: 1px solid $darkAccent;
+
+

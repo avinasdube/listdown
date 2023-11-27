@@ -2,4 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .rightArea{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
 }

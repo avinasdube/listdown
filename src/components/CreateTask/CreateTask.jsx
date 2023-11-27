@@ -3,7 +3,7 @@ import './CreateTask.scss';
 
 import filter from '../../assets/filters.png';
 import create from '../../assets/create.png';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../../reducers/todoReducers';
 
 const CreateTask = () => {
@@ -47,8 +47,10 @@ const CreateTask = () => {
         setInput('') // SETTING INPUT TO EMPTY AFTER SUCCESSFUL TASK ADDITION
     }
 
+    const currentMode = useSelector(state => state.mode.currentMode);
+
     return (
-        <div className="inputContainer">
+        <div className={`inputContainer ${currentMode === 'dark' ? 'active' : ''}`}>
             <div className="inputSubContainer">
                 <form onSubmit={handleSubmit} className="formContainer">
                     <input type='text' placeholder='Create a new task ...' value={input} onChange={(e) => { setInput(e.target.value)}}></input>

@@ -21,10 +21,13 @@ function App() {
   // GETTING TASKLIST FROM REDUX STATE REDUCER
   const tasklist = useSelector(state => state.todos.todos);
 
+  // GETTING CURRENT MODE FROM REDUX STATE REDUCER
+  const currentMode = useSelector(state => state.mode.currentMode);
+
   return (
     <>
       {loading === true ? <LoadingScreen /> :
-        <div className="appContainer">
+        <div className={`appContainer ${currentMode === 'dark' ? 'active' : ''}`}>
           <Layout >
               <TaskList tasklist={tasklist} />
           </Layout>
