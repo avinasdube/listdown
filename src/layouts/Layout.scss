@@ -1,3 +1,5 @@
+@import '../variables';
+
 .layoutContainer {
     height: 100%;
     display: flex;
@@ -5,7 +7,7 @@
 
     .navbar {
         padding: 10px 20px;
-        border-bottom: 1px solid rgb(228, 228, 228);
+        border-bottom: $borderLight;
     }
 
     .mainContainer {
@@ -16,7 +18,7 @@
         .sidebar {
             width: 200px;
             padding: 20px;
-            border-right: 1px solid rgb(228, 228, 228);
+            border-right: $borderLight;
         }
 
         .mainContent {
@@ -31,15 +33,32 @@
 
             .inputContainer {
                 height: fit-content;
-                background-color: white;
+                background-color: $lightBg;
             }
         }
+    }
+
+    &.active {
+        .navbar {
+            border: $borderDark;
+        }
+
+        .sidebar {
+            border-right: $borderDark;
+        }
+
+        .mainContent{
+            .inputContainer{
+                background-color: $darkBg;
+            }
+        }
+
     }
 }
 
 @media screen and (max-width: 800px) {
     .layoutContainer {
-        .navbar{
+        .navbar {
             padding: 10px;
         }
 
@@ -55,14 +74,13 @@
 
             .mainContent {
 
-                .tasklistContainer{
+                .tasklistContainer {
                     padding: 15px 10px;
                 }
-                
+
                 .inputContainer {
                     position: fixed;
                     bottom: 0;
-                    z-index: +3;
                 }
             }
         }

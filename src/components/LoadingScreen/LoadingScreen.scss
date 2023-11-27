@@ -1,11 +1,12 @@
 @import '../../variables';
 
 .container {
-    height: 90vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: $lightBg;
 
     .subContainer {
         width: 160px;
@@ -17,7 +18,7 @@
         position: relative;
 
         .bg1 {
-            background-color: $primaryColor;
+            background-color: lightblue;
             border-radius: 50%;
             position: absolute;
             z-index: 0;
@@ -41,7 +42,7 @@
 
     footer{
         position: absolute;
-        bottom: 0px;
+        bottom: 40px;
         font-size: 10px;
     }
 

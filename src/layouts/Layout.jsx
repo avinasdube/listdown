@@ -3,10 +3,14 @@ import './Layout.scss'; // Import your stylesheet
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/Sidebar/Sidebar';
 import CreateTask from '../components/CreateTask/CreateTask';
+import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
+
+    const currentMode = useSelector(state => state.mode.currentMode);
+
     return (
-        <div className="layoutContainer">
+        <div className={`layoutContainer ${currentMode === 'dark' ? 'active' : ''}`}>
             <header className="navbar">
                 <Navbar />
             </header>
