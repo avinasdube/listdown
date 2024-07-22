@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TaskList.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { checkTodo, removeTodo } from '../../reducers/todoReducers';
+import { checkTodo, editTodo, removeTodo } from '../../reducers/todoReducers';
 
 import NoTask from '../NoTask/NoTask';
 
 import edit from '../../assets/edit.png';
 import remove from '../../assets/delete.png';
+import EditModal from '../EditModal/EditModal';
 
 const TaskList = ({ tasklist }) => {
 
     const dispatch = useDispatch();
+
+    const [editModal, setEditModal] = useState(false);
+    const [taskToEdit, setTaskToEdit] = useState({});
 
     const filter = useSelector(state => state.labels.activeFilter); // GETTING ACTIVE FILTER KEYWORD
     const searchWord = useSelector(state => state.labels.searchWord); // GETTING SEARCHED KEYWORD
@@ -25,6 +29,15 @@ const TaskList = ({ tasklist }) => {
     });
 
     const currentMode = useSelector(state => state.mode.currentMode);
+
+    const handleEditModal = () => {
+        editModal === false ? setEditModal(true) : setEditModal(false);
+    }
+
+    const handleTargetTask = (e) => {
+        const targetTask = filteredAndSearchedTasks.find((task) => task.id === parseInt(e)) // FINDING TARGETTED TASK TO EDIT
+        setTaskToEdit(targetTask)
+    }
 
     return (
         <div className={`listContainer ${currentMode === 'dark' ? 'active' : ''}`}>
@@ -44,10 +57,11 @@ const TaskList = ({ tasklist }) => {
                             </div>
                         </div>
                         <div className="action">
-                            <img src={edit} alt=''></img>
+                            <img src={edit} alt='' id={task.id} onClick={(e) => { handleEditModal(true); handleTargetTask(e.target.id) }}></img>
                             <img src={remove} alt='' onClick={() => dispatch(removeTodo(task.id))}></img>
                         </div>
                     </div>))}
+            {editModal && <EditModal taskToEdit={taskToEdit} setTaskToEdit={setTaskToEdit} handleEditModal={handleEditModal} />}
         </div>
     )
 }
