@@ -3,7 +3,6 @@ import './LoadingScreen.scss';
 import Logo from '../Logo/Logo';
 import { useSelector } from 'react-redux';
 
-
 const LoadingScreen = () => {
   const currentMode = useSelector(state => state.mode.currentMode);
 
@@ -14,7 +13,7 @@ const LoadingScreen = () => {
         <Logo />
       </div>
       <footer>
-        &copy; 2023 ListDown
+        &copy; 2024 ListDown
       </footer>
     </div>
   )

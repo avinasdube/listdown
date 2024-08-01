@@ -55,7 +55,6 @@ const todoSlice = createSlice({
             localStorage.setItem("tasklist", JSON.stringify(updatedTasklist));
 
             // UPDATING LOCAL STATE
-
             state.todos = updatedTasklist
         },
         removeTodo: (state, action) => {
@@ -72,9 +71,38 @@ const todoSlice = createSlice({
 
             // UPDATING THE LOCAL STATE
             state.todos = filteredTasks;
+        },
+        editTodo: (state, action) => {
+            console.log("ID to be edited : ", action.payload)
+            const toBeEdited = action.payload;
+
+            // FETCHING 'tasklist' FROM LOCALSTORAGE AND STORING IT IN 'storageTask'
+            const storageTasks = JSON.parse(localStorage.getItem("tasklist"))
+
+            // FILTERING 'storageTasks' HAVING NO TASK WITH 'task.id === action.payload'
+            const editedTask = storageTasks.map((task) => {
+                if (task.id.toString() === toBeEdited.id.toString()) {
+                    return {
+                        ...task,
+                        label: toBeEdited.label,
+                        text: toBeEdited.text,
+                        checked: toBeEdited.checked,
+                        time: toBeEdited.time
+                    }
+                }
+
+                return task;
+            })
+
+            // UPDATING THE localStorage
+            localStorage.setItem("tasklist", JSON.stringify(editedTask));
+
+            // UPDATING LOCAL STATE
+
+            state.todos = editedTask
         }
     }
 })
 
-export const { addTodo, checkTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, checkTodo, removeTodo, editTodo } = todoSlice.actions;
 export default todoSlice.reducer;
